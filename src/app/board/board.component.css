@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .third {
+  background-color: gray;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black; */
+/* } */
+
+.b-l-thick {
+  border-radius: 10%;
+  border-left-width: 3px;
+}
+.b-r-thick {
+  border-right-width: 3px;
+  border-radius: 10%;
+}
+.b-t-thick {
+  border-top-width: 3px;
+  border-radius: 10%;
+}
+.b-b-thick {
+  border-bottom-width: 3px;
+  border-radius: 10%;
+}

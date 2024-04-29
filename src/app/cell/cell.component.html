@@ -1,0 +1,20 @@
+<div
+  class="border-l-gray-900 text-black m-2 px-2 py-1 text-center rounded-sm font-semibold"
+  [ngClass]="{ selected: editing }"
+>
+  <div *ngIf="!editing; else editmode" (click)="onEdit()">{{ value }}</div>
+  <ng-template #editmode>
+    <input
+      min="0"
+      max="9"
+      [ngClass]="{ selected: editing }"
+      autofocus
+      placeholder="{{ value }}"
+      (blur)="onBlur()"
+      type="number"
+      class="w-3 text-center relative"
+      [(ngModel)]="editedValue"
+      (keyup.enter)="onUpdate()"
+    />
+  </ng-template>
+</div>

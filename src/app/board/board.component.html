@@ -1,0 +1,33 @@
+<app-loading-spinner *ngIf="solver && solver.isLoading"></app-loading-spinner>
+<div class="w-full flex justify-center items-center flex-col">
+  <table class="px-24 rounded-sm">
+    <tr
+      *ngFor="let row of board; let i = index"
+      class="border-b-slate-700 rounded-sm"
+      [ngClass]="{ 'b-t-thick': i % 3 === 0, 'b-b-thick': i === 8 }"
+    >
+      <td
+        *ngFor="let val of row; let j = index"
+        class="border-b-slate-700 rounded-sm"
+        [ngClass]="{ 'b-l-thick': j % 3 === 0, 'b-r-thick': j === 8 }"
+      >
+        <app-cell
+          class="my-1 max-w-fit z-10"
+          (valueChange)="onCellUpdate(i, j, $event)"
+          [value]="val"
+        >
+        </app-cell>
+      </td>
+    </tr>
+  </table>
+  <h2 *ngIf="solveMessage">{{ solveMessage }}</h2>
+  <ul *ngIf="errors && errors.length > 0">
+    <li *ngFor="let error of errors">{{ error }}</li>
+  </ul>
+  <button
+    (click)="onSolve()"
+    class="bg-slate-500 text-white px-3 py-1 my-2 rounded-sm hover:bg-slate-400 hover:text-slate-800 transition-all duration-300 ease-linear hover:rounded-md"
+  >
+    Solve!
+  </button>
+</div>
