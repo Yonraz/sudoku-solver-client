@@ -1,0 +1,22 @@
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+
+<div>
+  <h1>Upload Sudoku Image</h1>
+  <div ngxFileDrop (onFileDrop)="onFileDropped($event)">
+    Drop your image here
+  </div>
+  <input
+    type="file"
+    (change)="fileBrowseHandler($event)"
+    accept=".jpg, .jpeg, .png"
+  />
+</div>
+
+<div >
+  <h1>Sudoku Result</h1>
+  <table>
+    <tr *ngFor="let row of grid">
+      <td *ngFor="let cell of row">{{ cell }}</td>
+    </tr>
+  </table>
+</div>
