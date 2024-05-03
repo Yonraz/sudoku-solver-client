@@ -1,5 +1,5 @@
 <div
-  class="border-l-gray-900 text-black m-2 px-2 py-1 text-center rounded-sm font-semibold"
+  class="border-l-gray-900 text-black my-2 mx-4 text-center rounded-sm font-semibold"
   [ngClass]="{ selected: editing }"
 >
   <div *ngIf="!editing; else editmode" (click)="onEdit()">{{ value }}</div>
