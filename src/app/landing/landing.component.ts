@@ -32,9 +32,13 @@ export class LandingComponent {
     let imgElement = document.getElementById('imageSrc') as HTMLImageElement;
     imgElement!.src = URL.createObjectURL($event.target.files[0]);
     imgElement.onload = function () {
-      let mat = cv.imread(imgElement);
-      cv.imshow('canvasOutput', mat);
-      mat.delete();
+      let imgSource = cv.imread(imgElement);
+      let dst = new cv.Mat();
+      let dsize = new cv.Size(400, 400);
+      cv.resize(imgSource, dst, dsize, 0, 0, cv.INTER_AREA);
+      cv.imshow('canvasOutput', dst);
+      imgSource.delete();
+      dst.delete();
     };
   }
 
