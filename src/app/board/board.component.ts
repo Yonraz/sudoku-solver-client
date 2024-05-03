@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { CellComponent } from '../cell/cell.component';
 import { Solver } from '../api/solver';
 import { LoadingSpinnerComponent } from '../loading-spinner/loading-spinner.component';
