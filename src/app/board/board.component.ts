@@ -4,6 +4,8 @@ import { CellComponent } from '../cell/cell.component';
 import { Solver } from '../api/solver';
 import { LoadingSpinnerComponent } from '../loading-spinner/loading-spinner.component';
 import { SolverResponse } from '../types/solverTypes';
+import { SudokuService } from '../sudoku.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-board',
@@ -15,8 +17,15 @@ import { SolverResponse } from '../types/solverTypes';
 export class BoardComponent implements OnInit {
   errors: string[] | null = null;
   solver: Solver | null = null;
+
+  constructor(private route: ActivatedRoute) {}
+
   ngOnInit(): void {
     this.solver = new Solver();
+    const params = this.route.snapshot.queryParams;
+    if (params['state'] && params['state'].grid) {
+      this.board = params['state'].grid;
+    }
   }
   @Input() board: number[][] = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
