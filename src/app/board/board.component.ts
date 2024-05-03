@@ -23,8 +23,18 @@ export class BoardComponent implements OnInit {
   ngOnInit(): void {
     this.solver = new Solver();
     const params = this.route.snapshot.queryParams;
-    if (params['state'] && params['state'].grid) {
-      this.board = params['state'].grid;
+    if (this.board.length === 0) {
+      this.board = [
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      ];
     }
   }
   @Input() board: number[][] = [

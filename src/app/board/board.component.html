@@ -12,7 +12,7 @@
         [ngClass]="{ 'b-l-thick': j % 3 === 0, 'b-r-thick': j === 8 }"
       >
         <app-cell
-          class="my-1 max-w-fit z-10"
+          class="max-w-fit z-10 text-xl"
           (valueChange)="onCellUpdate(i, j, $event)"
           [value]="val"
         >

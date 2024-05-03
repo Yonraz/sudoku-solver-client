@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-loading-spinner',
@@ -8,4 +8,5 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
   styleUrl: './loading-spinner.component.css',
 })
 export class LoadingSpinnerComponent {
+  @Input() message: string | null = null;
 }
