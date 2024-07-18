@@ -11,6 +11,9 @@ export class SudokuService {
   uploadImage(file: string): Observable<string> {
     const formData = new FormData();
     formData.append('file', file);
-    return this.http.post<string>('http://localhost:5000/upload', formData);
+    return this.http.post<string>(
+      'https://sudoku-server-20291e2c31ed.herokuapp.com/upload',
+      formData
+    );
   }
 }
